@@ -279,7 +279,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     // CapsLock RGB setup
     if (led_state.caps_lock) {
         if (user_config.rgb_hilite_caps) {
-            for (uint8_t i = 0; i < ARRAYSIZE(LED_LIST_LETTERS); i++) {
+            for (uint8_t i = 0; i < ARRAY_SIZE(LED_LIST_LETTERS); i++) {
                 rgb_matrix_set_color(LED_LIST_LETTERS[i], RGB_CHARTREUSE);
             }
             rgb_matrix_set_color(LED_L7, RGB_CHARTREUSE);
@@ -320,7 +320,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         rgb_matrix_set_color(LED_FN, RGB_RED); //FN key
 
         //NEW RGB LIGHTING TO RING KEYBOARD ON FN LAYER ACTIVATION:
-        for (uint8_t j = 0; j < ARRAYSIZE(LED_LIST_FUNCROW); j++) {
+        for (uint8_t j = 0; j < ARRAY_SIZE(LED_LIST_FUNCROW); j++) {
             rgb_matrix_set_color(LED_LIST_FUNCROW[j], RGB_RED);
         }
         rgb_matrix_set_color(LED_LCTL, RGB_RED);
@@ -443,7 +443,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
         #endif // INVERT_NUMLOCK_INDICATOR
         if (user_config.rgb_hilite_numpad) {
-            for (uint8_t i = 0; i < ARRAYSIZE(LED_LIST_NUMPAD); i++) {
+            for (uint8_t i = 0; i < ARRAY_SIZE(LED_LIST_NUMPAD); i++) {
                 rgb_matrix_set_color(LED_LIST_NUMPAD[i], RGB_OFFBLUE);
             }
             rgb_matrix_set_color(LED_L5, RGB_OFFBLUE);
@@ -481,7 +481,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         // Colemak layer RGB
         #ifdef COLEMAK_LAYER_ENABLE
     case _COLEMAK:
-        for (uint8_t i = 0; i < ARRAYSIZE(LED_SIDE_RIGHT); i++) {
+        for (uint8_t i = 0; i < ARRAY_SIZE(LED_SIDE_RIGHT); i++) {
             rgb_matrix_set_color(LED_SIDE_RIGHT[i], RGB_MAGENTA);
             rgb_matrix_set_color(LED_SIDE_LEFT[i], RGB_MAGENTA);
         }
