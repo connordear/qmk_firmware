@@ -1,5 +1,5 @@
 
-// Copyright 2022 Diego Palacios (@diepala)
+// Copyright 2022 Diego Palacios (@diepala) (modified heavily lol)
 // SPDX-License-Identifier: GPL-2.0
 
 #include QMK_KEYBOARD_H
@@ -16,16 +16,16 @@ enum layer_names {
 };
 
 // Left-hand home row mods
-#define HOME_A LGUI_T(KC_A)
+#define HOME_A LCTL_T(KC_A)
 #define HOME_R LALT_T(KC_R)
-#define HOME_S LCTL_T(KC_S)
+#define HOME_S LGUI_T(KC_S)
 #define HOME_T LSFT_T(KC_T)
 
 // Right-hand home row mods
 #define HOME_N RSFT_T(KC_N)
-#define HOME_E RCTL_T(KC_E)
+#define HOME_E RGUI_T(KC_E)
 #define HOME_I LALT_T(KC_I)
-#define HOME_O RGUI_T(KC_O)
+#define HOME_O RCTL_T(KC_O)
 
 #define ESC_NUM LT(_NUMBER, KC_ESC)
 #define SPC_NAV LT(_NAVIGATION, KC_SPC)
@@ -37,13 +37,13 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    /*  COLEMAK-DH Layer (with home-row mod taps: GACS | SCAG)
+    /*  COLEMAK Layer (with home-row mods: CAGS | SGAC)
       * ┌───┬───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┬───┐
-      * │   │ Q │ W │ F │ P │ B │       │ J │ L │ U │ Y │ ' │   │
+      * │   │ Q │ W │ F │ P │ G │       │ J │ L │ U │ Y │ ' │   │
       * ├───┼───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┼───┤
-      * │   │ A │ R │ S │ T │ G │       │ M │ N │ E │ I │ O │   │
+      * │   │ A │ R │ S │ T │ D │       │ H │ N │ E │ I │ O │   │
       * ├───┼───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┼───┤
-      * │HYP│ Z │ X │ C │ D │ V │       │ K │ H │ , │ . │ / │HYP│
+      * │HYP│ Z │ X │ C │ V │ B │       │ K │ M │ , │ . │ / │HYP│
       * └───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┘
       *               ┌───┐                   ┌───┐
       *               │Esc├───┐           ┌───┤Del│
@@ -53,14 +53,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                         M       ⏵
       */
     [_DEFAULT] = LAYOUT_split_3x6_3(
-        _______,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                               KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, _______,
-        _______, HOME_A,  HOME_R,  HOME_S,  HOME_T,  KC_G,                               KC_M,    HOME_N,  HOME_E,  HOME_I,  HOME_O,   _______,
-        KC_HYPR, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                               KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_HYPR,
+        _______, KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,                               KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, _______,
+        _______, HOME_A,  HOME_R,  HOME_S,  HOME_T,  KC_D,                               KC_H,    HOME_N,  HOME_E,  HOME_I,  HOME_O,  _______,
+        KC_HYPR, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_HYPR,
                                             TAB_MSE,  SPC_NAV, ESC_NUM,           ENT_MED, BSP_SYM,DEL_FUN
     ),
 
 
-     /*
+     /*  This layer is the default layer and just included in case a qwerty user wants to try using it
       * ┌───┬───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┬───┐
       * │Tab│ Q │ W │ E │ R │ T │       │ Y │ U │ I │ O │ P │Bsp│
       * ├───┼───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┼───┤
@@ -92,8 +92,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       * │   │   │   │   │   │   │       │   │ 1 │ 2 │ 3 │   │   │
       * └───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┘
       *               ┌───┐                   ┌───┐
-      *               │   ├───┐           ┌───┤   │
-      *               └───┤   ├───┐   ┌───┤ 0 ├───┘
+      *               │   ├───┐           ┌───┤ 0 │
+      *               └───┤   ├───┐   ┌───┤BSP├───┘
       *                   └───┤   │   │ . ├───┘
       *                       └───┘   └───┘
       */
@@ -102,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______,                            _______,     KC_7,    KC_8,    KC_9, _______, _______,
         _______, _______, _______, _______, _______, _______,                            _______,     KC_4,    KC_5,    KC_6, _______, _______,
         _______, _______, _______, _______, _______, _______,                            _______,     KC_1,    KC_2,    KC_3, _______, _______,
-                                            _______, _______, _______,           KC_DOT,    KC_0,  _______
+                                            _______, _______, _______,           KC_DOT, _______,     KC_0
     ),
 
 
@@ -136,11 +136,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 
-    /* NAVIGATION LAYER
+    /* NAVIGATION LAYER (this layer doesn't really work too well but mostly just arrow keys)
       * ┌───┬───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┬───┐
       * │   │   │   │   │   │   │       │RDO│PST│CPY│CUT│UDO│   │
       * ├───┼───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┼───┤
-      * │   │   │   │   │   │   │       │ ⯇ │ ⯆ │ ⯅ │ ⯈ │CAP│   │
+      * │   │   │   │   │   │   │       │⯇ │ ⯆ │ ⯅ │ ⯈ │CAP│ 
       * ├───┼───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┼───┤
       * │   │   │   │   │   │   │       │INS│HOM│PGD│PGU│END│   │
       * └───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┘
@@ -238,6 +238,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
+
+//  Some blank layer templates for future use
      /* ______ LAYER
       * ┌───┬───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┬───┐
       * │   │   │   │   │   │   │       │   │   │   │   │   │BTL│
