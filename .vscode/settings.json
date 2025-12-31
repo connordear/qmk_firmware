@@ -28,7 +28,8 @@
     "[json]": {
         "editor.formatOnSave": false
     },
-    "clangd.arguments": [
-        "--header-insertion=never"
-    ]
+    "clangd.arguments": ["--header-insertion=never"],
+    "cmake.configureOnOpen": false,
+    "C_Cpp.errorSquiggles": "disabled",
+    "cSpell.enabled": false
 }
