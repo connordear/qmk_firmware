@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_DEFAULT] = LAYOUT_split_3x6_3(
         _______,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                            KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, _______,
         _______, L_GUI_A, L_ALT_R, L_CTL_S, L_SFT_T, KC_G,                            KC_M,    R_SFT_N, R_CTL_E, R_ALT_I, R_GUI_O, _______,
-        _______, KC_Z,    KC_X,    KC_C,    HYPR_D,  KC_V,                            KC_K,    HYPR_H,  KC_COMM, KC_DOT,  KC_SLSH, _______,
+        _______, KC_Z,    KC_X,    KC_C,    HYPR_D,  KC_V,                            KC_K,    HYPR_H,  KC_COMM, KC_DOT,  KC_SLSH, KC_F13,
                                             ESC_MSE,  SPC_NAV, TAB_NUM,      ENT_MED, BSP_SYM, DEL_FUN
     ),
 
@@ -105,22 +105,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MAC] = LAYOUT_split_3x6_3(
         _______,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                            KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, _______,
         _______, M_CTL_A, M_ALT_R, M_GUI_S, M_SFT_T, KC_G,                            KC_M,    M_SFT_N, M_GUI_E, M_ALT_I, M_CTL_O, _______,
-        _______, KC_Z,    KC_X,    KC_C,    HYPR_D,  KC_V,                            KC_K,    HYPR_H,  KC_COMM, KC_DOT,  KC_SLSH, _______,
+        _______, KC_Z,    KC_X,    KC_C,    HYPR_D,  KC_V,                            KC_K,    HYPR_H,  KC_COMM, KC_DOT,  KC_SLSH, KC_F13,
                                             ESC_MSE,  SPC_NAV, TAB_NUM,      ENT_MED, BSP_SYM, DEL_FUN
     ),
 
 
-    /* ENTHIUM LAYER
+    /* ENTHIUM LAYER (v14)
      * Layout:
-     * L:  _  z  y  o  u  =      |   R:  q  l  d  p  x  _
-     * L:  w  c  i  a  e  ;      |   R:  k  h  t  n  s  f
-     * L:  _  '  -  ,  .  /      |   R:  j  m  g  b  v  _
+     * L:  _  q  y  o  u  =      |   R:  x  l  d  p  z  _
+     * L:  b  c  i  a  e  -      |   R:  k  h  t  n  s  w
+     * L:  _  '  ,  .  ;  /      |   R:  j  m  g  f  v  _
      * Thumbs: R on Right Middle, Backspace on Right Outer
      */
     [_ENTHIUM] = LAYOUT_split_3x6_3(
-        _______,  KC_Z,    KC_Y,    KC_O,    KC_U,    KC_EQL,                          KC_Q,    KC_L,    KC_D,    KC_P,    KC_X,    _______,
-        KC_W,    ENTH_C,  ENTH_I,  ENTH_A,  ENTH_E,  KC_SCLN,                          KC_K,    ENTH_H,  ENTH_T,  ENTH_N,  ENTH_S,  KC_F,
-        _______, KC_QUOT, KC_MINS, KC_COMM, KC_DOT,  KC_SLSH,                          KC_J,    KC_M,    KC_G,    KC_B,    KC_V,    _______,
+        _______,  KC_Q,    KC_Y,    KC_O,    KC_U,    KC_EQL,                          KC_X,    KC_L,    KC_D,    KC_P,    KC_Z,    _______,
+        KC_B,    ENTH_C,  ENTH_I,  ENTH_A,  ENTH_E,  KC_MINS,                          KC_K,    ENTH_H,  ENTH_T,  ENTH_N,  ENTH_S,  KC_W,
+        _______, KC_QUOT, KC_COMM, KC_DOT,  KC_SCLN, KC_SLSH,                          KC_J,    KC_M,    KC_G,    KC_F,    KC_V,    KC_F13,
                                             ESC_MSE,  SPC_NAV, TAB_NUM,            ENT_MED, R_SYM,   BSP_FUN
     ),
 
